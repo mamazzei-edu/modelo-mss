@@ -1,0 +1,47 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-wildcard-host
+spec:
+  rules:
+  - host: "clientes.exemplo.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/api-clientes"
+        backend:
+          service:
+            name: api-clientes-service
+            port:
+              number: 80
+  - host: "pagamentos.exemplo.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/api-pagamentos"
+        backend:
+          service:
+            name: api-pagamentos-service
+            port:
+              number: 80
+  - host: "pedidos.exemplo.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/api-pedidos"
+        backend:
+          service:
+            name: api-pedidos-service
+            port:
+              number: 80
+  - host: "produtos.exemplo.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/api-produtos"
+        backend:
+          service:
+            name: api-produtos-service
+            port:
+              number: 80
+
